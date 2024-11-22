@@ -1,0 +1,261 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Body Style */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #f3e7e9, #e3eeff, #e7f0fd);
+    animation: gradientShift 10s infinite alternate;
+}
+
+/* Menu Styling */
+.menu {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.menu a:hover {
+    background-color: #ff6f61;
+    transform: scale(1.1);
+}
+
+/* Section Styling */
+.section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-bottom: 2px solid #ddd;
+    transition: opacity 1s ease-out;
+}
+
+.section h2 {
+    margin-bottom: 10px;
+    font-size: 2em;
+    text-align: center;
+    color: #333;
+}
+
+.section p, .section ul {
+    color: #555;
+    text-align: center;
+}
+
+.section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.section ul li {
+    margin: 10px 0;
+}
+
+/* Home Section */
+.hello, .name {
+    text-align: center;
+    color: #333;
+}
+
+.hello {
+    font-size: 30px;
+    margin-bottom: 10px;
+    animation: slideInLeft 1s ease-out;
+}
+
+.name {
+    font-size: 50px;
+    margin-bottom: 20px;
+    animation: slideInRight 1s ease-out;
+}
+
+/* Typing Effect */
+.typing-effect {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 24px;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 0.15em solid #333;
+    animation: blink-caret 0.75s step-end infinite;
+}
+
+.typing-text {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 0.15em solid #ff6f61;
+    animation: typing 4s steps(30, end) 1s 1 normal both, blink-caret 0.75s step-end infinite;
+}
+
+.film-strip {
+    width: 80%;
+    height: 500px;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: rotateFilmStrip 60s linear infinite;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Individual Frame */
+.frame {
+    width: 200px;
+    height: 150px;
+    margin: 10px;
+    background-color: #222;
+    border: 2px solid #555;
+    border-radius: 5px;
+    position: absolute;
+    transform-origin: center;
+}
+
+/* Arrange Frames in a Circular Path */
+.frame:nth-child(1) {
+    transform: rotateY(0deg) translateZ(800px);
+}
+
+.frame:nth-child(2) {
+    transform: rotateY(20deg) translateZ(800px);
+}
+
+.frame:nth-child(3) {
+    transform: rotateY(40deg) translateZ(800px);
+}
+
+.frame:nth-child(4) {
+    transform: rotateY(60deg) translateZ(800px);
+}
+
+/* Frame Videos */
+.frame video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 3px;
+}
+
+/* Perforation Effect */
+.frame::before,
+.frame::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #333;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px #555;
+}
+
+.frame::before {
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.frame::after {
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* 3D Rotation Animation */
+@keyframes rotateFilmStrip {
+    from { transform: rotateY(0deg); }
+    to { transform: rotateY(360deg); }
+}
+
+/* Gradient Animation */
+@keyframes gradientShift {
+    0% { background: linear-gradient(135deg, #f3e7e9, #e3eeff, #e7f0fd); }
+    100% { background: linear-gradient(135deg, #e3eeff, #f3e7e9, #e7f0fd); }
+}
+
+
+/* Contact Section */
+.contact-info {
+    text-align: center;
+}
+
+.contact-info p {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.social-media {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.social-media a {
+    display: block;
+    width: 40px;
+    height: 40px;
+}
+
+.social-media img {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s;
+}
+
+.social-media img:hover {
+    transform: scale(1.2);
+}
+
+.e {
+    text-decoration: none;
+    color: orange;
+}
+
+.ph {
+    text-decoration: none;
+    color: green;
+}
+
+/* Keyframes for Animations */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #ff6f61; }
+}
+
+@keyframes slideInLeft {
+    from { transform: translateX(-100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes gradientShift {
+    0% { background: linear-gradient(135deg, #f3e7e9, #e3eeff, #e7f0fd); }
+    100% { background: linear-gradient(135deg, #e3eeff, #f3e7e9, #e7f0fd); }
+}
